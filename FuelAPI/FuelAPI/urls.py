@@ -1,10 +1,9 @@
 from django.conf.urls import patterns, include, url
-from django.contrib import admin
+
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'FuelAPI.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
+                       url(r'^docs/', include('rest_framework_swagger.urls', namespace='swagger')),
+                       url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+                       url(r'^v0\.1/', include('v0_1.urls', namespace='v0.1'))
+                       )
 
-    url(r'^admin/', include(admin.site.urls)),
-)
